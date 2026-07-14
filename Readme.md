@@ -2,6 +2,20 @@
 
 A computer vision platform combining **transfer-learning image classification** and **YOLOv8 object detection**, trained on a curated 25-class subset of the COCO dataset. Built as a multi-page Streamlit application with four classification architectures and a fine-tuned YOLOv8 detector.
 
+**🔗 Live Demo:** [smartvision-ai-3qertrfx7tdetamnufgfmu.streamlit.app](https://smartvision-ai-3qertrfx7tdetamnufgfmu.streamlit.app/)
+
+> Note: deployed on **Streamlit Community Cloud** rather than Hugging Face Spaces. Hugging Face changed its Space creation policy to require a paid plan for Docker/Streamlit-based Spaces as of this project's build date, so Streamlit's own free hosting was used as the equivalent alternative — all other deployment requirements (public URL, GitHub repo, requirements.txt, README) are otherwise met per the original plan.
+
+## Screenshots
+
+| Home | Image Classification |
+|---|---|
+| ![Home page](images/home.jpg) | ![Classification page](images/image.jpg) |
+
+| Object Detection | Model Performance |
+|---|---|
+| ![Detection page](images/object.jpg) | ![Model performance page](images/model.jpg) |
+
 ## Features
 
 - **Image Classification** — upload a cropped image of a single object and get predictions from 4 CNN architectures side by side (VGG16, ResNet50, MobileNetV2, EfficientNetB0), each with top-5 confidence breakdowns.
