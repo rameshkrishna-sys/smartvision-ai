@@ -240,15 +240,41 @@ def page_home():
     )
 
 
+LEAN_MODELS = ["EfficientNetB0", "MobileNetV2"]
+HEAVY_MODELS = ["ResNet50", "VGG16"]
+
+
 def page_classification():
     st.title("🖼️ Image Classification")
-    st.markdown("Upload an image of a **single object** to classify it across all 4 models.")
+    st.markdown("Upload an image of a **single object** to classify it.")
 
     class_to_idx, idx_to_class = load_class_mapping()
+
+    st.markdown("### Choose which model(s) to run")
+    st.caption(
+        "This app runs on a free-tier host with limited memory (1GB). "
+        "EfficientNetB0 and MobileNetV2 are lightweight and always safe to run together. "
+        "ResNet50 and VGG16 are larger (VGG16 alone is ~512MB) — enabling them increases "
+        "the chance of the app running out of memory, especially in combination."
+    )
+    selected_models = st.multiselect(
+        "Models to run",
+        options=list(CLASSIFIER_LOADERS.keys()),
+        default=LEAN_MODELS,
+    )
+    if any(m in HEAVY_MODELS for m in selected_models):
+        st.warning(
+            "You've selected a large model (ResNet50 and/or VGG16). This may be slow "
+            "or fail on the free-tier host due to the 1GB memory limit."
+        )
 
     uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
+        if not selected_models:
+            st.error("Select at least one model above to run classification.")
+            return
+
         pil_image = Image.open(uploaded_file)
 
         col_img, col_results = st.columns([1, 2])
@@ -256,12 +282,12 @@ def page_classification():
             st.image(pil_image, caption="Uploaded Image", use_container_width=True)
 
         with col_results:
-            st.markdown("### Predictions from all 4 models")
+            st.markdown(f"### Predictions from {len(selected_models)} model(s)")
 
             with st.spinner("Running inference..."):
                 all_results = {}
-                for name, loader in CLASSIFIER_LOADERS.items():
-                    model = loader()
+                for name in selected_models:
+                    model = CLASSIFIER_LOADERS[name]()
                     all_results[name] = classify_image(model, pil_image, idx_to_class, top_k=5)
 
             # Top-1 comparison table
