@@ -1,0 +1,20 @@
+# Dataset (334MB+, don't push to GitHub)
+smartvision_dataset/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+env/
+
+# YOLO training run artifacts (kept locally, not needed in repo)
+notebooks/runs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+notebooks/yolov8n.pt

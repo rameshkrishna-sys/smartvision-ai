@@ -1,0 +1,9 @@
+{
+  "model": "YOLOv8n",
+  "mAP50": 0.752,
+  "mAP50-95": 0.421,
+  "precision": 0.913,
+  "recall": 0.665,
+  "epochs_trained": "30 + 20 + 20 (staged fine-tuning)",
+  "inference_speed_ms": 19.8
+}

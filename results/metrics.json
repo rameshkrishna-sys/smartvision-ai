@@ -1,0 +1,42 @@
+[
+  {
+    "Model":"ResNet50",
+    "Test Accuracy":0.8,
+    "Top-5 Accuracy":0.944,
+    "Precision (macro)":0.8262,
+    "Recall (macro)":0.8,
+    "F1-score (macro)":0.8012,
+    "Avg Inference Time (ms)":17.22,
+    "Model Size (MB)":90.17
+  },
+  {
+    "Model":"EfficientNetB0",
+    "Test Accuracy":0.776,
+    "Top-5 Accuracy":0.92,
+    "Precision (macro)":0.794,
+    "Recall (macro)":0.776,
+    "F1-score (macro)":0.7737,
+    "Avg Inference Time (ms)":6.11,
+    "Model Size (MB)":16.85
+  },
+  {
+    "Model":"VGG16",
+    "Test Accuracy":0.7653,
+    "Top-5 Accuracy":0.9387,
+    "Precision (macro)":0.7751,
+    "Recall (macro)":0.7653,
+    "F1-score (macro)":0.7625,
+    "Avg Inference Time (ms)":41.28,
+    "Model Size (MB)":512.57
+  },
+  {
+    "Model":"MobileNetV2",
+    "Test Accuracy":0.712,
+    "Top-5 Accuracy":0.928,
+    "Precision (macro)":0.7329,
+    "Recall (macro)":0.712,
+    "F1-score (macro)":0.7098,
+    "Avg Inference Time (ms)":4.8,
+    "Model Size (MB)":8.84
+  }
+]

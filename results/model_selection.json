@@ -1,0 +1,7 @@
+{
+  "primary_model": "EfficientNetB0",
+  "primary_reason": "Best accuracy-to-efficiency tradeoff (77.6% acc, 6.1ms inference, 17MB)",
+  "alternative_model": "ResNet50",
+  "alternative_reason": "Highest raw accuracy (80.0%) for users prioritizing precision over speed",
+  "not_recommended": "VGG16 (dominated on speed and size for similar accuracy)"
+}
